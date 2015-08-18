@@ -1,7 +1,0 @@
-package msg;
-
-message OSMsg{
-	required string fromu  = 1;
-	required string tou = 2;
-	required  string content = 3;
-}
