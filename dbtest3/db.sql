@@ -16,11 +16,20 @@ uid int
 
 CREATE TABLE post(
 id int PRIMARY KEY auto_increment,
-uid int,
 tsid int
 )charset=utf8;
 
 CREATE TABLE tag(
 id int PRIMARY KEY auto_increment,
 psid int
+)charset=utf8;
+
+CREATE TABLE prefix_post_tags(
+tag_id int,
+post_id int
+)charset=utf8;
+
+CREATE TABLE prefix_tag_posts(
+tag_id int,
+post_id int
 )charset=utf8;
