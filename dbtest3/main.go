@@ -11,7 +11,7 @@ var ORM orm.Ormer
 
 func init() {
 	orm.RegisterDataBase("default", "mysql", "cdb_outerroot:root1234@tcp(55c354e17de4e.sh.cdb.myqcloud.com:7276)/dbt?charset=utf8")
-	orm.RegisterModel( /*new(User) new(Profile), ,*/ new(Post), new(Tag))
+	orm.RegisterModel( /*new(User) new(Profile), ,*/ new(Post), new(Tag), new(PostTags))
 	ORM = orm.NewOrm()
 }
 func main() {
@@ -86,12 +86,10 @@ func main() {
 // }
 
 func insertPostTag() {
-	// user := &User{Id: 1, Name: "tom"}
-	post1 := &Post{ /*Id: 5 , User: user*/ }
-	post2 := &Post{ /*Id: 6 , User: user*/ }
-	posts := []*Post{post1, post2}
-	tag1 := &Tag{ /*Id: 7 ,*/ Posts: posts}
-	tag2 := &Tag{ /*Id: 8 ,*/ Posts: posts}
+	post1 := &Post{}
+	post2 := &Post{}
+	tag1 := &Tag{Posts: post1}
+	tag2 := &Tag{Posts: post2}
 	tags := []*Tag{tag1, tag2}
 	post1.Tags = tags
 	post2.Tags = tags
@@ -99,10 +97,10 @@ func insertPostTag() {
 	fmt.Println(n, err)
 	n, err = ORM.Insert(post2)
 	fmt.Println(n, err)
-	n, err = ORM.Insert(tag1)
-	fmt.Println(n, err)
-	n, err = ORM.Insert(tag2)
-	fmt.Println(n, err)
+	// n, err = ORM.Insert(tag1)
+	// fmt.Println(n, err)
+	// n, err = ORM.Insert(tag2)
+	// fmt.Println(n, err)
 }
 
 // type User struct {

@@ -16,20 +16,40 @@ uid int
 
 CREATE TABLE post(
 id int PRIMARY KEY auto_increment,
-tsid int
+tsid int,
+KEY tag(tsid)
 )charset=utf8;
 
 CREATE TABLE tag(
 id int PRIMARY KEY auto_increment,
-psid int
+psid int,
+KEY post(psid)
 )charset=utf8;
 
 CREATE TABLE prefix_post_tags(
 tag_id int,
-post_id int
+post_id int,
+KEY tag(tag_id),
+KEY post(post_id)
 )charset=utf8;
 
 CREATE TABLE prefix_tag_posts(
 tag_id int,
-post_id int
+post_id int,
+KEY tag(tag_id),
+KEY post(post_id)
+)charset=utf8;
+
+CREATE TABLE post_tags(
+tag_id int,
+post_id int,
+KEY tag(tag_id),
+KEY post(post_id)
+)charset=utf8;
+
+CREATE TABLE tag_posts(
+tag_id int,
+post_id int,
+KEY tag(tag_id),
+KEY post(post_id)
 )charset=utf8;

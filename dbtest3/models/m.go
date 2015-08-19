@@ -118,8 +118,8 @@ package models
 type Post struct {
 	Id int `orm:"pk"`
 	// User *User  `orm:"rel(fk);column(uid);reverse(one);on_delete(cascade)"`
-	// Tags []*Tag `orm:"rel(m2m);rel_through(github.com/shaalx/orm_test/dbtest3/models.PostTags);column(psid)"`
-	Tags []*Tag `orm:"rel(m2m);rel_table(prefix_post_tags);column(tsid)"`
+	Tags []*Tag `orm:"rel(m2m);rel_through(github.com/shaalx/orm_test/dbtest3/models.PostTags);column(psid)"`
+	// Tags []*Tag `orm:"rel(m2m);column(tsid)"`
 }
 
 func NewPost() *Post {
@@ -128,8 +128,8 @@ func NewPost() *Post {
 }
 
 type Tag struct {
-	Id    int     `orm:"pk"`
-	Posts []*Post `orm:"reverse(many);column(psid)" json:"-"`
+	Id    int   `orm:"pk"`
+	Posts *Post `orm:"reverse(one);column(psid)"`
 }
 
 func NewTag() *Tag {
