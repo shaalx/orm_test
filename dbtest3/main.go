@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
-	. "github.com/shaalx/orm_test/dbtest3/models"
+	. "github.com/toukii/orm_test/dbtest3/models"
 )
 
 var ORM orm.Ormer
@@ -126,7 +126,7 @@ func insertPostTag() {
 // 	Id int `orm:"pk"`
 // 	// Posts []*Post `orm:"rel(m2m);reverse(many);column(psid)"`
 // 	// Posts []*Post `orm:"rel(m2m);rel_table(post_tags);column(psid)"`
-// 	Posts []*Post `orm:"rel(m2m);rel_through(github.com/shaalx/orm_test/dbtest3.TagPosts);column(psid)"`
+// 	Posts []*Post `orm:"rel(m2m);rel_through(github.com/toukii/orm_test/dbtest3.TagPosts);column(psid)"`
 // }
 
 // type TagPosts struct {

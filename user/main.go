@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
-	. "github.com/shaalx/orm_test/user/model"
+	. "github.com/toukii/orm_test/user/model"
 )
 
 var ORM orm.Ormer

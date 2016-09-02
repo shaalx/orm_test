@@ -118,7 +118,7 @@ package models
 type Post struct {
 	Id int `orm:"pk"`
 	// User *User  `orm:"rel(fk);column(uid);reverse(one);on_delete(cascade)"`
-	Tags []*Tag `orm:"rel(m2m);rel_through(github.com/shaalx/orm_test/dbtest3/models.PostTags);column(psid)"`
+	Tags []*Tag `orm:"rel(m2m);rel_through(github.com/toukii/orm_test/dbtest3/models.PostTags);column(psid)"`
 	// Tags []*Tag `orm:"rel(m2m);column(tsid)"`
 }
 
